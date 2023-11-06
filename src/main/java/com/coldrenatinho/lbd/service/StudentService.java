@@ -30,7 +30,10 @@ public class StudentService {
         if(studentOptional.isPresent()){
             throw new IllegalStateException("email taken");
         }
-        studentRepository.save(student);
-        System.out.println(student);
+        else {
+            studentRepository.save(student);
+            System.out.println(student);
+        }
     }
+
 }
