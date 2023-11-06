@@ -1,0 +1,116 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.5)
+
+2023-11-06T00:40:28.447-04:00  INFO 14940 --- [           main] com.coldrenatinho.lbd.LbdApplication     : Starting LbdApplication using Java 21.0.1 with PID 14940 (C:\UNEMAT\Coldrenatinho.Spring\target\classes started by Renato in C:\UNEMAT\Coldrenatinho.Spring)
+2023-11-06T00:40:28.532-04:00  INFO 14940 --- [           main] com.coldrenatinho.lbd.LbdApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-11-06T00:40:33.321-04:00  INFO 14940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-06T00:40:33.730-04:00  INFO 14940 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 365 ms. Found 1 JPA repository interfaces.
+2023-11-06T00:40:37.502-04:00  INFO 14940 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-06T00:40:37.560-04:00  INFO 14940 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-06T00:40:37.561-04:00  INFO 14940 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-06T00:40:38.162-04:00  INFO 14940 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-06T00:40:38.166-04:00  INFO 14940 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9009 ms
+2023-11-06T00:40:39.656-04:00  INFO 14940 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-06T00:40:40.419-04:00  INFO 14940 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-11-06T00:40:40.447-04:00  INFO 14940 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-06T00:40:42.022-04:00  INFO 14940 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-06T00:40:42.127-04:00  INFO 14940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-06T00:40:44.938-04:00  INFO 14940 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b9697ae
+2023-11-06T00:40:44.948-04:00  INFO 14940 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-06T00:40:49.555-04:00  INFO 14940 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists student
+Hibernate: 
+    drop table if exists student_sequence
+Hibernate: 
+    create table student (
+        dob date,
+        id bigint not null,
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    create table student_sequence (
+        next_val bigint
+    ) engine=InnoDB
+Hibernate: 
+    insert into student_sequence values ( 1 )
+2023-11-06T00:40:49.990-04:00  INFO 14940 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-06T00:40:52.042-04:00  INFO 14940 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-06T00:40:54.232-04:00  WARN 14940 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-06T00:40:56.107-04:00  INFO 14940 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-06T00:40:56.476-04:00  INFO 14940 --- [           main] com.coldrenatinho.lbd.LbdApplication     : Started LbdApplication in 31.862 seconds (process running for 34.265)
+Hibernate: 
+    select
+        s1_0.id,
+        s1_0.dob,
+        s1_0.email,
+        s1_0.name 
+    from
+        student s1_0 
+    where
+        s1_0.id=?
+Hibernate: 
+    select
+        next_val as id_val 
+    from
+        student_sequence for update
+Hibernate: 
+    update
+        student_sequence 
+    set
+        next_val= ? 
+    where
+        next_val=?
+Hibernate: 
+    select
+        next_val as id_val 
+    from
+        student_sequence for update
+Hibernate: 
+    update
+        student_sequence 
+    set
+        next_val= ? 
+    where
+        next_val=?
+Hibernate: 
+    select
+        next_val as id_val 
+    from
+        student_sequence for update
+Hibernate: 
+    update
+        student_sequence 
+    set
+        next_val= ? 
+    where
+        next_val=?
+Hibernate: 
+    insert 
+    into
+        student
+        (dob,email,name,id) 
+    values
+        (?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        student
+        (dob,email,name,id) 
+    values
+        (?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        student
+        (dob,email,name,id) 
+    values
+        (?,?,?,?)
