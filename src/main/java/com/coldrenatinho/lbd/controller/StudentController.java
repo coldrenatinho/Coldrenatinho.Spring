@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @RestController
 @RequestMapping(path ="api/v1/students" )
 public class StudentController {
@@ -35,5 +37,8 @@ public class StudentController {
                 studentService.deleteStudet(studentId);
     }
 
-
+    @PutMapping(path = "{id}")
+    public void updateStudent(@PathVariable("id") Long id, @RequestBody Student student){
+            studentService.updateStudent(id, student);
+    }
 }
