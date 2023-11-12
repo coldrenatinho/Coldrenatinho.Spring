@@ -48,13 +48,17 @@ public class StudentService {
 
 
     public void updateStudent(Long id, Student student) {
-        ResponseEntity<Student> studentOptional = studentRepository.findById(id).map(record ->   {
-            record.setName(student.getName());
-            record.setEmail(student.getEmail());
-            record.setDob(student.getDob());
-            Student update = studentRepository.save(record);
-            return ResponseEntity.ok().body(update);
-        }).orElse(ResponseEntity.notFound().build());
+        boolean exists = studentRepository.existsById(id);
+        if (exists) {
+            ResponseEntity<Student> studentOptional = studentRepository.findById(id).map(record -> {
+                record.setName(student.getName());
+                record.setEmail(student.getEmail());
+                record.setDob(student.getDob());
+                Student update = studentRepository.save(record);
+                return ResponseEntity.ok().body(update);
+            }).orElse(ResponseEntity.notFound().build());
+        }else {
+            throw new IllegalStateException("Not exist id: " + id + " " + " From postMetohod: " + student);
+        }
     }
-
 }
