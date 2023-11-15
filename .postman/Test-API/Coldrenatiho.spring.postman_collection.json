@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "0738d5b9-9917-4974-972d-854c154c9036",
+		"name": "Coldrenatiho.spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30803258"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/v1/students?id1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response is an array with at least one element\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"  \r",
+							"    pm.expect(responseData).to.be.an('array').and.to.have.lengthOf.at.least(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Each project in the response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(function(project) {\r",
+							"        pm.expect(project).to.have.property('id').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('nameProject').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('description').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('autor').that.is.not.empty;\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (project) {\r",
+							"        pm.expect(project.id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"NameProject is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (item) {\r",
+							"        pm.expect(item.nameProject).to.be.a('string').and.to.have.lengthOf.at.least(1, \"NameProject should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// Verify the length of the response data\r",
+							"pm.test(\"The response data length must be greater than zero\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"   \r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0, \"Response data should not be empty\");\r",
+							"\r",
+							"    responseData.forEach(function(project) {\r",
+							"        pm.expect(project.id).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");\r",
+							"        pm.expect(project.nameProject).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"NameProject should not be empty\");\r",
+							"        pm.expect(project.description).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Description should not be empty\");\r",
+							"        pm.expect(project.autor).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Autor should not be empty\");\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Renato\",\r\n    \"email\": \"fuck@gmail.com\",\r\n    \"dob\": \"2001-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Calor\",\r\n    \"email\": \"Calol@gmail2.com\",\r\n    \"dob\": \"2001-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Rodni\",\r\n    \"email\": \"Rodni@gmail.com\",\r\n    \"dob\": \"2001-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students/1 Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students/99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students?id1 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response is an array with at least one element\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"  \r",
+							"    pm.expect(responseData).to.be.an('array').and.to.have.lengthOf.at.least(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Each project in the response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(function(project) {\r",
+							"        pm.expect(project).to.have.property('id').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('nameProject').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('description').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('autor').that.is.not.empty;\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (project) {\r",
+							"        pm.expect(project.id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"NameProject is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (item) {\r",
+							"        pm.expect(item.nameProject).to.be.a('string').and.to.have.lengthOf.at.least(1, \"NameProject should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// Verify the length of the response data\r",
+							"pm.test(\"The response data length must be greater than zero\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"   \r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0, \"Response data should not be empty\");\r",
+							"\r",
+							"    responseData.forEach(function(project) {\r",
+							"        pm.expect(project.id).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");\r",
+							"        pm.expect(project.nameProject).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"NameProject should not be empty\");\r",
+							"        pm.expect(project.description).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Description should not be empty\");\r",
+							"        pm.expect(project.autor).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Autor should not be empty\");\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"roberto\",\r\n  \"email\": \"capixava@example.com\",\r\n  \"dob\": \"2002-08-20\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students/1 Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Cleitom\",\r\n  \"email\": \"novo.email@example.com\",\r\n  \"dob\": \"1995-08-20\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students/99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/v1/students?id1 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response is an array with at least one element\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"  \r",
+							"    pm.expect(responseData).to.be.an('array').and.to.have.lengthOf.at.least(1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Each project in the response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(function(project) {\r",
+							"        pm.expect(project).to.have.property('id').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('nameProject').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('description').that.is.not.empty;\r",
+							"        pm.expect(project).to.have.property('autor').that.is.not.empty;\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (project) {\r",
+							"        pm.expect(project.id).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"NameProject is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function (item) {\r",
+							"        pm.expect(item.nameProject).to.be.a('string').and.to.have.lengthOf.at.least(1, \"NameProject should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// Verify the length of the response data\r",
+							"pm.test(\"The response data length must be greater than zero\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"   \r",
+							"    pm.expect(responseData.length).to.be.greaterThan(0, \"Response data should not be empty\");\r",
+							"\r",
+							"    responseData.forEach(function(project) {\r",
+							"        pm.expect(project.id).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Id should not be empty\");\r",
+							"        pm.expect(project.nameProject).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"NameProject should not be empty\");\r",
+							"        pm.expect(project.description).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Description should not be empty\");\r",
+							"        pm.expect(project.autor).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Autor should not be empty\");\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "2",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
