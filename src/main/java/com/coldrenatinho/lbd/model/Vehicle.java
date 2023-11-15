@@ -1,8 +1,22 @@
 package com.coldrenatinho.lbd.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Vehicle {
+    @Id
+    @SequenceGenerator(
+            name = "vehicle_sequence",
+            sequenceName = "vehicle_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY,
+            generator = "vehicle_sequence"
+    )
     private long id; // Id do carro reistrado
     private long veicle_type_id; //Tipo de veículo: Moto, SUV, PickUp...
     private String Name; //Nome comercial do veículo
@@ -102,7 +116,6 @@ public class Vehicle {
                 ", seach_name='" + seach_name + '\'' +
                 '}';
     }
-
 
 
 }
