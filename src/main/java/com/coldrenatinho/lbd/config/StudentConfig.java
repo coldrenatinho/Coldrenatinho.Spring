@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-@Configuration
+//@Configuration //Desativado. Só pode existir somente uma classa de configurador 15/11/2023 12:05
 public class StudentConfig {
 
     @Bean
