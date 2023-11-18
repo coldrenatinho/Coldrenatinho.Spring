@@ -1,0 +1,48 @@
+package com.coldrenatinho.lbd.model;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+public class VehicleType {
+    private Long id;
+    private String Description;
+
+    public VehicleType() {
+    }
+
+    public VehicleType(Long id, String description) {
+        this.id = id;
+        Description = description;
+    }
+
+    public VehicleType(String description) {
+        Description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "VehicleType{" +
+                "id=" + id +
+                ", Description='" + Description + '\'' +
+                '}';
+    }
+}
