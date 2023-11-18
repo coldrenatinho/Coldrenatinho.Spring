@@ -1,12 +1,21 @@
 package com.coldrenatinho.lbd.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table
 public class VehicleType {
+    @Id
+    @SequenceGenerator(
+            name = "vehicle-type_sequece",
+            sequenceName = "vehicle-type_sequece",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY,
+            generator = "vehicle-type_sequece"
+    )
     private Long id;
     private String Description;
 
