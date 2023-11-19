@@ -10,11 +10,11 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-//@Configuration //Desativado. Só pode existir somente uma classa de configurador 15/11/2023 12:05
+@Configuration //Desativado. Só pode existir somente uma classa de configurador 15/11/2023 12:05
 public class StudentConfig {
 
-    @Bean
-    CommandLineRunner commandLineRunner(StudentRepository studentRepository){
+    @Bean("StudentConfig")
+    CommandLineRunner commandLineRunner_StudentConfig(StudentRepository studentRepository){
         return args -> {
             Student mariam = new Student(
                     1L,

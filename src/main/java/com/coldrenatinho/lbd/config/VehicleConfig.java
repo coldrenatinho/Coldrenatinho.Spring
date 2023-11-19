@@ -1,6 +1,8 @@
 package com.coldrenatinho.lbd.config;
 
 import com.coldrenatinho.lbd.model.Vehicle;
+import com.coldrenatinho.lbd.model.VehicleBrand;
+import com.coldrenatinho.lbd.repository.VehicleBrandRepository;
 import com.coldrenatinho.lbd.repository.VehicleRepossitory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +16,9 @@ import java.util.List;
 @Configuration
 public class VehicleConfig {
 
-    @Bean
-    CommandLineRunner commandLineRunner(VehicleRepossitory vehicleRepossitory){
+    @Bean("VehicleConfig")
+    CommandLineRunner commandLineRunner_VehicleConfig
+            (VehicleRepossitory vehicleRepossitory){
         return args -> {
             Vehicle Golbola = new Vehicle(
                     1L,
@@ -66,5 +69,7 @@ public class VehicleConfig {
 
 
     }
+
+
 
 }
