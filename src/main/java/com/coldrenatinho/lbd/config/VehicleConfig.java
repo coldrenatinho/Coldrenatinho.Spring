@@ -29,7 +29,7 @@ public class VehicleConfig {
                     "Gol"
             );
             Vehicle RAM1000 = new Vehicle(
-                    1L,
+                    2L,
                     "RAM-1000",
                     LocalDate.of(2004, Month.JANUARY, 3),
                     1,
@@ -37,7 +37,7 @@ public class VehicleConfig {
                     "Dogger RAM, RAM, RAM-1000"
             );
             Vehicle GolQuadrado = new Vehicle(
-                    1L,
+                    3L,
                     "Gol",
                     LocalDate.of(1997, Month.JANUARY, 3),
                     1,
@@ -45,7 +45,7 @@ public class VehicleConfig {
                     "Gol quadrado, golzinho, barata"
             );
             Vehicle Model1 = new Vehicle(
-                    1L,
+                    4L,
                     "Tesla Model 1",
                     LocalDate.of(2020, Month.JANUARY, 3),
                     1,
@@ -53,7 +53,7 @@ public class VehicleConfig {
                     "Tesla Model 1"
             );
             Vehicle Model2 = new Vehicle(
-                    1L,
+                    5L,
                     "Tesla Model 2",
                     LocalDate.of(2000, Month.JANUARY, 3),
                     1,

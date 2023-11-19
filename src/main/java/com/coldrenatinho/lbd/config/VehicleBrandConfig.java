@@ -22,31 +22,31 @@ public class VehicleBrandConfig {
                     "Tesla"
             );
             VehicleBrand Ford = new VehicleBrand(
-                    1L,
+                    2L,
                     "Ford"
             );
             VehicleBrand Mercedes = new VehicleBrand(
-                    1L,
+                    3L,
                     "Mercedes"
             );
             VehicleBrand Audi = new VehicleBrand(
-                    1L,
+                    4L,
                     "Audi"
             );
             VehicleBrand volkswagen = new VehicleBrand(
-                    1L,
+                    5L,
                     "volkswagen"
             );
             VehicleBrand AstomMartim = new VehicleBrand(
-                    1L,
+                    6L,
                     "Astom Martim"
             );
             VehicleBrand Ferrari = new VehicleBrand(
-                    1L,
+                    7L,
                     "Ferrari"
             );
             VehicleBrand Pegou = new VehicleBrand(
-                    1L,
+                    8L,
                     "Pegou"
             );
 
