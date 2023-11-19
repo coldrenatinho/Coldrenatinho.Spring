@@ -39,7 +39,7 @@ public class VehicleEnigeService {
         boolean exists = vehicleEnigeRepository.existsById(id);
         if (exists) {
             ResponseEntity<VehicleEnige> VehicleEnige = vehicleEnigeRepository.findById(id).map(record -> {
-                record.setDescripio(vehicleEnige.getDescripio());
+                record.setDescripition(vehicleEnige.getDescripition());
                 VehicleEnige update = vehicleEnigeRepository.save(record);
                 return ResponseEntity.status(200).body(update);
             }).orElse(ResponseEntity.notFound().build());

@@ -11,10 +11,10 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-@Configuration
+@Configuration("VehicleBrand Config")
 public class VehicleBrandConfig {
 
-    @Bean("VehicleBrandConnfig")
+    @Bean
     CommandLineRunner commandLineRunner_VehicleBrandConfig(VehicleBrandRepository vehicleBrandRepository) {
         return args -> {
             VehicleBrand Tesla = new VehicleBrand(

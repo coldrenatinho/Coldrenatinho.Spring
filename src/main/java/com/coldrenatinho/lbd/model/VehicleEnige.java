@@ -18,19 +18,19 @@ public class VehicleEnige {
 
     )
     private Long id;
-    private String Descripio;
+    private String Descripition;
 
 
     public VehicleEnige() {
     }
 
-    public VehicleEnige(Long id, String descripio) {
+    public VehicleEnige(Long id, String descripition) {
         this.id = id;
-        Descripio = descripio;
+        Descripition = descripition;
     }
 
-    public VehicleEnige(String descripio) {
-        Descripio = descripio;
+    public VehicleEnige(String descripition) {
+        Descripition = descripition;
     }
 
     public Long getId() {
@@ -41,19 +41,19 @@ public class VehicleEnige {
         this.id = id;
     }
 
-    public String getDescripio() {
-        return Descripio;
+    public String getDescripition() {
+        return Descripition;
     }
 
-    public void setDescripio(String descripio) {
-        Descripio = descripio;
+    public void setDescripition(String descripition) {
+        Descripition = descripition;
     }
 
     @Override
     public String toString() {
         return "VehicleEnige{" +
                 "id=" + id +
-                ", Descripio='" + Descripio + '\'' +
+                ", Descripition='" + Descripition + '\'' +
                 '}';
     }
 }

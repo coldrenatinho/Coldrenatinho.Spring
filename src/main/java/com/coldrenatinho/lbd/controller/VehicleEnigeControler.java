@@ -27,12 +27,12 @@ public class VehicleEnigeControler {
    }
 
    @DeleteMapping(path = "{id}")
-    public void deleteVehicleEnige(@PathVariable("{id}") Long id){
+    public void deleteVehicleEnige(@PathVariable("id") Long id){
         vehicleEnigeService.deleteVehicleEnigeById(id);
    }
 
-   @PostMapping(path = "{id}")
-    public void updateVehicleEnigeById(@PathVariable("{id}") Long id, @RequestBody VehicleEnige vehicleEnige){
+   @PutMapping(path = "{id}")
+    public void updateVehicleEnigeById(@PathVariable("id") Long id, @RequestBody VehicleEnige vehicleEnige){
         vehicleEnigeService.updateVehicleEnigeByID(id, vehicleEnige);
    }
 

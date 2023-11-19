@@ -21,7 +21,6 @@ public class VehicleService {
     @Autowired
     public VehicleService(VehicleRepossitory vehicleRepossitory) {
         this.vehicleRepossitory = vehicleRepossitory;
-        System.out.println("Consulta realizada com sucesso");
     }
 
     public List<Vehicle> getVehicles() {
