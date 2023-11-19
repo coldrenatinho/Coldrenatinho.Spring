@@ -1,6 +1,22 @@
 package com.coldrenatinho.lbd.model;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table
 public class VehicleEnige {
+    @Id
+    @SequenceGenerator(
+            name = "vehicle_enige_sequence",
+            sequenceName = "vehicle_enige_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY,
+            generator = "vehicle_enige_sequence"
+
+    )
     private Long id;
     private String Descripio;
 

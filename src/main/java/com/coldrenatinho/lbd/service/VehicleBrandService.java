@@ -4,6 +4,6 @@ import com.coldrenatinho.lbd.service.VehicleBrandService;
 import com.coldrenatinho.lbd.repository.VehicleBrandRepository;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public class VehicleBrandService {
 }
