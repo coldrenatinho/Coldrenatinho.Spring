@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class VehicleBrandWeb {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/VehicleBrand")
+    @RequestMapping(method = RequestMethod.GET, value = "/vehicle-brand")
     public ModelAndView VehicleBrandWeb(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("VehicleBrand.html");

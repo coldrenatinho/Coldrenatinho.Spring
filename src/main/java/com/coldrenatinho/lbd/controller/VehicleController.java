@@ -33,4 +33,9 @@ public class VehicleController {
                 vehicleService.deleteVehicle(id);
     }
 
+    @PutMapping(path = "{id}")
+    public void updateVehicle(@PathVariable("id") Long id, @RequestBody Vehicle vehicle){
+        vehicleService.updateVehicle(id, vehicle);
+    }
+
 }

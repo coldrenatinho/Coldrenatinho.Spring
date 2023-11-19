@@ -21,6 +21,7 @@ public class VehicleService {
     @Autowired
     public VehicleService(VehicleRepossitory vehicleRepossitory) {
         this.vehicleRepossitory = vehicleRepossitory;
+        System.out.println("Consulta realizada com sucesso");
     }
 
     public List<Vehicle> getVehicles() {
@@ -53,6 +54,7 @@ public class VehicleService {
                 record.setYear_lauch(vehicle.getYear_lauch());
                 record.setSeach_name(vehicle.getSeach_name());
                 record.setVeicle_type_id(vehicle.getVeicle_type_id());
+                record.setSeach_name(vehicle.getSeach_name());
                 Vehicle update = vehicleRepossitory.save(record);
                 return ResponseEntity.status(200).body(update);
             }).orElse(ResponseEntity.notFound().build());
