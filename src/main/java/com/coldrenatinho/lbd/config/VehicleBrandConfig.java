@@ -6,6 +6,7 @@ import com.coldrenatinho.lbd.repository.VehicleRepossitory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -15,6 +16,7 @@ import java.util.List;
 public class VehicleBrandConfig {
 
     @Bean
+    @Order(2)
     CommandLineRunner commandLineRunner_VehicleBrandConfig(VehicleBrandRepository vehicleBrandRepository) {
         return args -> {
             VehicleBrand Tesla = new VehicleBrand(

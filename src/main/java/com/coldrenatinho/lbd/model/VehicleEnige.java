@@ -33,6 +33,10 @@ public class VehicleEnige {
         Descripition = descripition;
     }
 
+    public VehicleEnige(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

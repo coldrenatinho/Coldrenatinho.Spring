@@ -5,6 +5,7 @@ import com.coldrenatinho.lbd.repository.VehicleEnigeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class VehicleMotorConfig {
 
     @Bean("VehicleEnigeConfig")
+    @Order(3)
     CommandLineRunner commandLineRunner_VehicleEnige
             (VehicleEnigeRepository vehicleEnigeRepository){
         return args -> {

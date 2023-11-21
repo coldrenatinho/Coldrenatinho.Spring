@@ -21,37 +21,42 @@ public class Vehicle {
     @ManyToOne
     @JoinColumn(name = "vehicle_type_id")
     private VehicleType vehicleType;
-/*
-    private long veicle_type_id; //Tipo de veículo: Moto, SUV, PickUp...
-*/
     private String Name; //Nome comercial do veículo
     private LocalDate year_lauch; //Ano do lançamanto do Veículo
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private VehicleBrand vehicleBrand;
+/*
     private long brand_id; // Marca do carro
+*/
+    @ManyToOne
+    @JoinColumn(name = "enige_type_id")
+    private VehicleEnige vehicleEnige;
+/*
     private long enige_type_id; // tipo de Motor Combustão, Hibrido, Elétrico
+*/
     private String seach_name; // concatenar Name + Brand
 
     public Vehicle() {
     }
 
 
-    public Vehicle(long id, long veicle_type_id, String name, LocalDate year_lauch, long brand_id, long enige_type_id, String seach_name) {
+    public Vehicle(long id, VehicleType vehicleType, String name, LocalDate year_lauch, VehicleBrand vehicleBrand, VehicleEnige vehicleEnige, String seach_name) {
         this.id = id;
-/*
-        this.veicle_type_id = veicle_type_id;
-*/
-        Name = name;
-        this.year_lauch = year_lauch;
-        this.brand_id = brand_id;
-        this.enige_type_id = enige_type_id;
-        this.seach_name = seach_name;
-    }
-
-    public Vehicle(VehicleType vehicleType, String name, LocalDate year_lauch, long brand_id, long enige_type_id, String seach_name) {
         this.vehicleType = vehicleType;
         Name = name;
         this.year_lauch = year_lauch;
-        this.brand_id = brand_id;
-        this.enige_type_id = enige_type_id;
+        this.vehicleBrand = vehicleBrand;
+        this.vehicleEnige = vehicleEnige;
+        this.seach_name = seach_name;
+    }
+
+    public Vehicle(VehicleType vehicleType, String name, LocalDate year_lauch, VehicleBrand vehicleBrand,VehicleEnige vehicleEnige, String seach_name) {
+        this.vehicleType = vehicleType;
+        Name = name;
+        this.year_lauch = year_lauch;
+        this.vehicleBrand = vehicleBrand;
+        this.vehicleEnige = vehicleEnige;
         this.seach_name = seach_name;
     }
 
@@ -87,20 +92,20 @@ public class Vehicle {
         this.year_lauch = year_lauch;
     }
 
-    public long getBrand_id() {
-        return brand_id;
+    public VehicleBrand getBrand_id() {
+        return vehicleBrand;
     }
 
-    public void setBrand_id(long brand_id) {
-        this.brand_id = brand_id;
+    public void setBrand_id(VehicleBrand vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
     }
 
-    public long getEnige_type_id() {
-        return enige_type_id;
+    public VehicleEnige getEnige_type_id() {
+        return vehicleEnige;
     }
 
-    public void setEnige_type_id(long enige_type_id) {
-        this.enige_type_id = enige_type_id;
+    public void setEnige_type_id(VehicleEnige vehicleEnige) {
+        this.vehicleEnige = vehicleEnige;
     }
 
     public String getSeach_name() {
@@ -119,8 +124,8 @@ public class Vehicle {
                 ", vehicleType=" + vehicleType +
                 ", Name='" + Name + '\'' +
                 ", year_lauch=" + year_lauch +
-                ", brand_id=" + brand_id +
-                ", enige_type_id=" + enige_type_id +
+                ", brand_id=" + vehicleBrand +
+                ", enige_type_id=" + vehicleEnige +
                 ", seach_name='" + seach_name + '\'' +
                 '}';
     }

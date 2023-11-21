@@ -2,8 +2,8 @@ package com.coldrenatinho.lbd.config;
 
 import com.coldrenatinho.lbd.model.Vehicle;
 import com.coldrenatinho.lbd.model.VehicleBrand;
+import com.coldrenatinho.lbd.model.VehicleEnige;
 import com.coldrenatinho.lbd.model.VehicleType;
-import com.coldrenatinho.lbd.repository.VehicleBrandRepository;
 import com.coldrenatinho.lbd.repository.VehicleRepossitory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -29,45 +29,41 @@ public class VehicleConfig {
                             "sedan"),
                     "Golbolinha",
                     LocalDate.of(2000, Month.JANUARY, 3),
-                    1,
-                    1,
+                    new VehicleBrand(1L),
+                    new VehicleEnige(1L),
                     "Gol"
             );
             Vehicle RAM1000 = new Vehicle(
-                    new VehicleType(1L,
-                            "sedan"),
-                    "RAM-1000",
-                    LocalDate.of(2004, Month.JANUARY, 3),
-                    1,
-                    1,
-                    "Dogger RAM, RAM, RAM-1000"
+                    new VehicleType(1L, "sedan"),
+                    "Golbolinha",
+                    LocalDate.of(2000, Month.JANUARY, 3),
+                    new VehicleBrand(1L),
+                    new VehicleEnige(1L),
+                    "Gol"
             );
             Vehicle GolQuadrado = new Vehicle(
-                    new VehicleType(1L,
-                            "sedan"),
-                    "Gol",
-                    LocalDate.of(1997, Month.JANUARY, 3),
-                    1,
-                    1,
-                    "Gol quadrado, golzinho, barata"
+                    new VehicleType(1L, "sedan"),
+                    "Golbolinha",
+                    LocalDate.of(2000, Month.JANUARY, 3),
+                    new VehicleBrand(1L),
+                    new VehicleEnige(1L),
+                    "Gol"
             );
             Vehicle Model1 = new Vehicle(
-                    new VehicleType(1L,
-                            "sedan"),
-                    "Tesla Model 1",
-                    LocalDate.of(2020, Month.JANUARY, 3),
-                    1,
-                    3,
-                    "Tesla Model 1"
+                    new VehicleType(1L, "sedan"),
+                    "Golbolinha",
+                    LocalDate.of(2000, Month.JANUARY, 3),
+                    new VehicleBrand(1L),
+                    new VehicleEnige(1L),
+                    "Gol"
             );
             Vehicle Model2 = new Vehicle(
-                    new VehicleType(1L,
-                            "sedan"),
-                    "Tesla Model 2",
+                    new VehicleType(1L, "sedan"),
+                    "Golbolinha",
                     LocalDate.of(2000, Month.JANUARY, 3),
-                    1,
-                    3,
-                    "Tesla Model 3"
+                    new VehicleBrand(1L),
+                    new VehicleEnige(1L),
+                    "Gol"
             );
 
             vehicleRepossitory.saveAll(

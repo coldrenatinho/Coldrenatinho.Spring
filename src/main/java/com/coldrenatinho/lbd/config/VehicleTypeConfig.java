@@ -13,7 +13,7 @@ import java.util.List;
 public class VehicleTypeConfig {
 
     @Bean("VehicleTypeConfig")
-    @Order(1)
+    @Order(1) //Defique em que oder os Beans vão ser executados
     CommandLineRunner commandLineRunner_VehicleTypeConfig
             (VehicleTypeRepository vehicleTypeRepository){
         return args -> {
