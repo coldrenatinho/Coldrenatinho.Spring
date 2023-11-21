@@ -31,6 +31,10 @@ public class VehicleType {
         Description = description;
     }
 
+    public VehicleType(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

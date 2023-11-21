@@ -18,7 +18,12 @@ public class Vehicle {
             generator = "vehicle_sequence"
     )
     private long id; // Id do carro reistrado
+    @ManyToOne
+    @JoinColumn(name = "vehicle_type_id")
+    private VehicleType vehicleType;
+/*
     private long veicle_type_id; //Tipo de veículo: Moto, SUV, PickUp...
+*/
     private String Name; //Nome comercial do veículo
     private LocalDate year_lauch; //Ano do lançamanto do Veículo
     private long brand_id; // Marca do carro
@@ -31,7 +36,9 @@ public class Vehicle {
 
     public Vehicle(long id, long veicle_type_id, String name, LocalDate year_lauch, long brand_id, long enige_type_id, String seach_name) {
         this.id = id;
+/*
         this.veicle_type_id = veicle_type_id;
+*/
         Name = name;
         this.year_lauch = year_lauch;
         this.brand_id = brand_id;
@@ -39,8 +46,8 @@ public class Vehicle {
         this.seach_name = seach_name;
     }
 
-    public Vehicle(long veicle_type_id, String name, LocalDate year_lauch, long brand_id, long enige_type_id, String seach_name) {
-        this.veicle_type_id = veicle_type_id;
+    public Vehicle(VehicleType vehicleType, String name, LocalDate year_lauch, long brand_id, long enige_type_id, String seach_name) {
+        this.vehicleType = vehicleType;
         Name = name;
         this.year_lauch = year_lauch;
         this.brand_id = brand_id;
@@ -56,12 +63,12 @@ public class Vehicle {
         this.id = id;
     }
 
-    public long getVeicle_type_id() {
-        return veicle_type_id;
+    public VehicleType getVeicle_type_id() {
+        return vehicleType;
     }
 
-    public void setVeicle_type_id(long veicle_type_id) {
-        this.veicle_type_id = veicle_type_id;
+    public void setVeicle_type_id(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public String getName() {
@@ -104,11 +111,12 @@ public class Vehicle {
         this.seach_name = seach_name;
     }
 
+
     @Override
     public String toString() {
         return "Vehicle{" +
                 "id=" + id +
-                ", veicle_type_id=" + veicle_type_id +
+                ", vehicleType=" + vehicleType +
                 ", Name='" + Name + '\'' +
                 ", year_lauch=" + year_lauch +
                 ", brand_id=" + brand_id +
@@ -116,6 +124,4 @@ public class Vehicle {
                 ", seach_name='" + seach_name + '\'' +
                 '}';
     }
-
-
 }

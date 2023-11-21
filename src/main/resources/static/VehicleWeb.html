@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Lista de Veículos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Lista de Veículos</h2>
+
+    <div class="row mt-3">
+        <!-- Itera sobre cada veículo na lista -->
+        <div class="col-md-4 mb-3" th:each="vehicle : ${vehicles}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Veículo ID: ${vehicle.id}</h5>
+                    <p class="card-text">Nome: ${vehicle.name}</p>
+                    <p class="card-text">Ano de Lançamento: ${vehicle.year_lauch}</p>
+                    <p class="card-text">Marca ID: ${vehicle.brand_id}</p>
+                    <p class="card-text">Tipo de Veículo: ${vehicle.vehicle_type_id ? vehicle.vehicle_type_id.description : 'N/A'}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adiciona os scripts do Bootstrap (jQuery e Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

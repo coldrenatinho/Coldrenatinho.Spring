@@ -2,11 +2,14 @@ package com.coldrenatinho.lbd.config;
 
 import com.coldrenatinho.lbd.model.Vehicle;
 import com.coldrenatinho.lbd.model.VehicleBrand;
+import com.coldrenatinho.lbd.model.VehicleType;
 import com.coldrenatinho.lbd.repository.VehicleBrandRepository;
 import com.coldrenatinho.lbd.repository.VehicleRepossitory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -17,11 +20,13 @@ import java.util.List;
 public class VehicleConfig {
 
     @Bean("VehicleConfig")
+    @Order(999)
     CommandLineRunner commandLineRunner_VehicleConfig
             (VehicleRepossitory vehicleRepossitory){
         return args -> {
             Vehicle Golbola = new Vehicle(
-                    1L,
+                    new VehicleType(1L,
+                            "sedan"),
                     "Golbolinha",
                     LocalDate.of(2000, Month.JANUARY, 3),
                     1,
@@ -29,7 +34,8 @@ public class VehicleConfig {
                     "Gol"
             );
             Vehicle RAM1000 = new Vehicle(
-                    2L,
+                    new VehicleType(1L,
+                            "sedan"),
                     "RAM-1000",
                     LocalDate.of(2004, Month.JANUARY, 3),
                     1,
@@ -37,7 +43,8 @@ public class VehicleConfig {
                     "Dogger RAM, RAM, RAM-1000"
             );
             Vehicle GolQuadrado = new Vehicle(
-                    3L,
+                    new VehicleType(1L,
+                            "sedan"),
                     "Gol",
                     LocalDate.of(1997, Month.JANUARY, 3),
                     1,
@@ -45,7 +52,8 @@ public class VehicleConfig {
                     "Gol quadrado, golzinho, barata"
             );
             Vehicle Model1 = new Vehicle(
-                    4L,
+                    new VehicleType(1L,
+                            "sedan"),
                     "Tesla Model 1",
                     LocalDate.of(2020, Month.JANUARY, 3),
                     1,
@@ -53,7 +61,8 @@ public class VehicleConfig {
                     "Tesla Model 1"
             );
             Vehicle Model2 = new Vehicle(
-                    5L,
+                    new VehicleType(1L,
+                            "sedan"),
                     "Tesla Model 2",
                     LocalDate.of(2000, Month.JANUARY, 3),
                     1,

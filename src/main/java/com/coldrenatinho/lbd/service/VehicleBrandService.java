@@ -29,7 +29,15 @@ public class VehicleBrandService {
     }
 
     public void deleteVehicleBrandById(Long id) {
-        vehicleBrandRepository.deleteById(id);
+        Boolean exist = vehicleBrandRepository.existsById(id);
+        if(exist){
+            vehicleBrandRepository.deleteById(id);
+            System.out.println("Veículo deleteado com sucesso!");
+        } else {
+            throw new IllegalStateException("Não foi possivel deletar o veículo selecionado. Verifique o 'ID' informado!");
+        }
+
+
     }
 
     @Transactional
