@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(path = "api/v1/enige")
+@RequestMapping(path = "api/v1/engige")
 public class VehicleEnigeControler {
 
     private final VehicleEnigeService vehicleEnigeService;

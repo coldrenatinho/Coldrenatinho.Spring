@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:8.2.0-oracle
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'lbd'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'lbd'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'lbd'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'root'
+      # Use % to allow remote access to all addresses.
+      MYSQL_ROOT_HOST: '%'
+
+      # This allows ip ranges from 192.168.0.49 to 192.168.0.54 to connect to root
+      #MYSQL_ROOT_HOST: 192.168.0.48/255.255.255.248
+
+
+    ports:
+      # <Port exposed> : <MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
+    driver: local
+
+
+
+
