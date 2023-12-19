@@ -18,18 +18,23 @@ public class VehicleMotorConfig {
             (VehicleEnigeRepository vehicleEnigeRepository){
         return args -> {
             VehicleEnige Eletrico = new VehicleEnige(
+                    1L,
                     "Elétrico"
             ) ;
             VehicleEnige Diesel = new VehicleEnige(
+                    2L,
                     "Diesel"
             ) ;
             VehicleEnige Flex = new VehicleEnige(
+                    3L,
                     "Flex"
             ) ;
             VehicleEnige Gasolina = new VehicleEnige(
+                    4L,
                     "Gasolina"
             ) ;
             VehicleEnige Hibrido = new VehicleEnige(
+                    5L,
                     "Hibrido"
             ) ;
 

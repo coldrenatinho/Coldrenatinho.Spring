@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="LbdApplication" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+    <output_file path="$PROJECT_DIR$/../log" />
+    <log_file alias="Spring.log" path="$PROJECT_DIR$/../log" />
+    <option name="MAIN_CLASS_NAME" value="com.coldrenatinho.lbd.LbdApplication" />
+    <module name="lbd" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
